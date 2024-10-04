@@ -24,8 +24,7 @@ La estrategia de GitFlow es adecuada ya que proporciona un flujo de trabajo clar
 
 2. Definición de pasos para la creación, revisión y fusión de ramas:
 
-Creación de ramas:
-
+Creación de ramas
 Feature branches: Creadas desde develop para cada nueva funcionalidad.
 Release branches: Creadas desde develop cuando todo el desarrollo de la versión está listo para ser probado y ajustado.
 Hotfix branches: Creadas desde master para corregir errores críticos en producción.
@@ -60,8 +59,6 @@ Sincronización con el repositorio remoto:
 Pull: Antes de subir tus cambios, es recomendable sincronizar tu repositorio local con los cambios que otros miembros del equipo puedan haber hecho, usando git pull origin main (si trabajas en la rama principal).
 Push: Una vez que tus cambios están listos, los subes al servidor remoto con el comando git push origin nombre-rama.
 
-
-
 Pull request (PR): En la mayoría de los proyectos colaborativos, los cambios no se integran directamente en la rama principal, sino que se crea una pull request (PR). Otros desarrolladores revisan tu código antes de fusionarlo. Esto asegura que los cambios no rompan el proyecto.
 
 Merge: Si el PR es aprobado, se hace un merge (fusión) de la rama que creaste a la rama principal del proyecto (generalmente main o master).
@@ -73,5 +70,7 @@ Canary Deployment: Esta estrategia puede ser muy efectiva para una aplicación m
 
  Entornos
 Desarrollo (Development): Este entorno es donde los desarrolladores implementan nuevas funcionalidades y realizan pruebas iniciales. Para una aplicación móvil, esto incluye pruebas en emuladores y dispositivos físicos.
+
 Preproducción (Staging): Un entorno que replica el entorno de producción, donde se realizan pruebas finales antes del lanzamiento. Aquí puedes simular la experiencia del usuario final con datos reales (pero no sensibles).
+
 Producción (Production): Es el entorno donde la aplicación está disponible para los usuarios finales. En este caso, asegúrate de que la aplicación móvil esté correctamente desplegada en las tiendas de aplicaciones (App Store y Google Play) y que esté monitoreada para cualquier problema.
