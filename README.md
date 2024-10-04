@@ -19,28 +19,32 @@ Adopción de las Mejores Prácticas de Desarrollo Ágil: Es una metodología ág
 
 II. ESQUEMA DE VERSIONAMIENTO
 
-GitHub es una plataforma de desarrollo que utiliza Git, un sistema de control de versiones distribuido, para gestionar el código fuente y colaborar en proyectos.
+1. Selección de Estrategia de Versionamiento (GitFlow):
+La estrategia de GitFlow es adecuada ya que proporciona un flujo de trabajo claro, estructurado y flexible para el desarrollo colaborativo y la gestión de lanzamientos. GitFlow permite manejar versiones de producción estables mientras se desarrollan nuevas funcionalidades y se preparan lanzamientos de manera ordenada.
 
-1.	Ramas (Branches):
-o	Rama Principal (main/master): La rama principal contiene el código estable y listo para producción.
-o	Ramas de Desarrollo (feature branches): Se crean ramas específicas para el desarrollo de nuevas funcionalidades o corrección de errores. Estas ramas se fusionan con la rama principal cuando están completas.
+2. Definición de pasos para la creación, revisión y fusión de ramas:
 
-3.	Commits y Mensajes de Commit:
-o	Commits: Cada cambio realizado en el código se guarda en un commit. Los commits deben tener mensajes claros que describan las modificaciones realizadas.
-o	Mensajes de Commit: Se recomienda utilizar mensajes descriptivos y concisos para facilitar la comprensión del historial de cambios.
+Creación de ramas:
 
-4.	Pull Requests:
-o	Revisión de Código: Las pull requests se utilizan para revisar y discutir los cambios antes de fusionarlos con la rama principal. Permiten la colaboración y la revisión del código por parte de otros miembros del equipo.
+Feature branches: Creadas desde develop para cada nueva funcionalidad.
+Release branches: Creadas desde develop cuando todo el desarrollo de la versión está listo para ser probado y ajustado.
+Hotfix branches: Creadas desde master para corregir errores críticos en producción.
 
-5.	Versiones y Etiquetas (Tags):
-o	Etiquetas (Tags): Se utilizan para marcar versiones específicas del software en el repositorio. Las etiquetas ayudan a identificar versiones estables y permiten realizar un seguimiento de los lanzamientos.
+Revisión y pruebas:
+Antes de fusionar cualquier feature branch a develop, el código debe pasar por una revisión (code review) y pruebas automatizadas para asegurar su calidad.
+La release branch también debe pasar pruebas rigurosas antes de fusionarse en master para lanzar una nueva versión.
 
-6.	Integración Continua (CI) y Entrega Continua (CD):
-o	Automatización: Configura pipelines de CI/CD en GitHub Actions para automatizar el proceso de construcción, pruebas y despliegue del software.
+Fusión de ramas:
+Una vez que se completan las pruebas, las feature branches se fusionan en develop.
+Las release branches se fusionan tanto en master (para lanzar la versión) como en develop (para incluir los ajustes en el flujo de desarrollo).
+Las hotfix branches se fusionan en master y develop para corregir problemas críticos.
 
-7.	Gestión de Issues y Proyectos:
-o	Issues: Utiliza issues para rastrear errores, tareas y mejoras. Permite la gestión y priorización del trabajo pendiente.
-o	Proyectos: Organiza y planifica el trabajo en proyectos para mantener un flujo de trabajo ordenado y eficiente.
+3. Integración continua (CI):
+GitFlow es compatible con la integración continua (CI). Cada vez que se fusione una rama (ya sea feature, release o hotfix), los sistemas de CI como Jenkins, TravisCI, o GitHub Actions ejecuten automáticamente:
+
+Compilación: Verificar que el código pueda ser compilado correctamente.
+Pruebas automatizadas: Ejecutar las pruebas unitarias, de integración y funcionales para asegurar que no se introducen errores.
+Despliegue: Implementar el código en entornos de prueba o producción según corresponda (esto suele ocurrir cuando se fusiona en master).
 
 
 III. FLUJO DE HERRAMIENTA DE CONTROL DE VERSIONES SELECCIONADA Y EL FLUJO DE TRABAJO
