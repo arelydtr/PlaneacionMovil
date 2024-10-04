@@ -9,11 +9,17 @@ Flexibilidad y Adaptabilidad: XP es conocida por su flexibilidad, lo que la hace
 Orientación a las Personas: Pone un fuerte énfasis en la colaboración, la comunicación y el trabajo en equipo. La metodología promueve la interacción constante entre desarrolladores, clientes y otros stakeholders, lo que mejora la comprensión de los requisitos y garantiza la satisfacción del cliente.
 
 Calidad del Software: Incorpora prácticas que se centran en la calidad del software, como pruebas continuas, revisión de código y refactorización. Esto conduce a la entrega de software más confiable y de mayor calidad.
+
 Ritmo de Entrega: Fomenta la entrega frecuente de software funcional. Esto permite a los clientes obtener valor rápidamente y proporciona la oportunidad de obtener retroalimentación temprana, lo que puede mejorar la toma de decisiones.
+
 Gestión de Riesgos: Aborda la gestión de riesgos al incorporar prácticas como la planificación incremental y la adaptación a medida que se aprende más sobre el proyecto. Esto ayuda a mitigar los riesgos y a tomar decisiones informadas.
+
 Comunicación Efectiva: La comunicación constante y las prácticas de revisión en XP mejoran la comprensión y reducen malentendidos entre los miembros del equipo y los clientes, lo que lleva a una mayor eficiencia y menos errores.
+
 Crecimiento Profesional: ´Promueve el aprendizaje continuo y el desarrollo profesional de los miembros del equipo. Esto conduce a equipos altamente competentes y motivados.
+
 Satisfacción del Cliente: La orientación de XP hacia la satisfacción del cliente y la entrega de valor aporta un alto nivel de satisfacción y fidelidad del cliente.
+
 Adopción de las Mejores Prácticas de Desarrollo Ágil: Es una metodología ágil que se basa en principios ágiles fundamentales, como la entrega temprana y continua de software y la adaptación a cambios. 
 
 
@@ -26,7 +32,9 @@ La estrategia de GitFlow es adecuada ya que proporciona un flujo de trabajo clar
 
 Creación de ramas
 Feature branches: Creadas desde develop para cada nueva funcionalidad.
+
 Release branches: Creadas desde develop cuando todo el desarrollo de la versión está listo para ser probado y ajustado.
+
 Hotfix branches: Creadas desde master para corregir errores críticos en producción.
 
 Revisión y pruebas:
@@ -42,7 +50,9 @@ Las hotfix branches se fusionan en master y develop para corregir problemas crí
 GitFlow es compatible con la integración continua (CI). Cada vez que se fusione una rama (ya sea feature, release o hotfix), los sistemas de CI como Jenkins, TravisCI, o GitHub Actions ejecuten automáticamente:
 
 Compilación: Verificar que el código pueda ser compilado correctamente.
+
 Pruebas automatizadas: Ejecutar las pruebas unitarias, de integración y funcionales para asegurar que no se introducen errores.
+
 Despliegue: Implementar el código en entornos de prueba o producción según corresponda (esto suele ocurrir cuando se fusiona en master).
 
 
@@ -57,6 +67,7 @@ Realizar cambios y commit: Guardar en en Git mediante un commit con el comando g
 Sincronización con el repositorio remoto:
 
 Pull: Antes de subir tus cambios, es recomendable sincronizar tu repositorio local con los cambios que otros miembros del equipo puedan haber hecho, usando git pull origin main (si trabajas en la rama principal).
+
 Push: Una vez que tus cambios están listos, los subes al servidor remoto con el comando git push origin nombre-rama.
 
 Pull request (PR): En la mayoría de los proyectos colaborativos, los cambios no se integran directamente en la rama principal, sino que se crea una pull request (PR). Otros desarrolladores revisan tu código antes de fusionarlo. Esto asegura que los cambios no rompan el proyecto.
