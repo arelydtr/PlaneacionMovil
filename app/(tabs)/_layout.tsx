@@ -9,6 +9,8 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 export default function TabLayout() {
   const colorScheme = useColorScheme();
 
+  // ejemplo de colocar un texto sombreado
+
   return (
     <Tabs
       screenOptions={{
