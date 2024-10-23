@@ -20,7 +20,21 @@ const products = [
     // Agrega más productos aquí
 ];
 
+
+/*
+
+    git init
+
+    git add .
+
+    git commit -m "Aqui va un comentario acerca del commit"
+
+    git push origin main, master o cualquier otra rama
+
+*/
+
 export default function Index() {
+
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     useEffect(() => {
