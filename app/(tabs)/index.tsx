@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, Image, Text, ScrollView } from 'react-native';
+import { View, StyleSheet, Image, Text, ScrollView, Button, TouchableOpacity } from 'react-native';
 import TabLayout from './_layout'; // Importa el componente de las tabs
 
 // Importa el logo y las imágenes
@@ -10,17 +10,48 @@ const images = [
     require('../../assets/images/main4.jpg'), // Cambia esto por las imágenes correctas
     require('../../assets/images/main2.jpg'),
     require('../../assets/images/main3.jpg'),
+    require('../../assets/images/main5.jpg'),
 ];
 
 // Datos de ejemplo para las tarjetas de prendas
 const products = [
-    { id: 1, name: 'Prenda 1', image: require('../../assets/images/ropa1.jpg') },
-    { id: 2, name: 'Prenda 2', image: require('../../assets/images/ropa2.jpg') },
-    { id: 3, name: 'Prenda 3', image: require('../../assets/images/ropa3.jpg') },
+    { 
+        id: 1, 
+        name: 'Vestido Unicorn Squa', 
+        price: 640, 
+        description: 'Pequeño vestido de manga larga para mujeres', 
+        image: require('../../assets/images/unicorn_squad.jpg') 
+    },
+    { 
+        id: 2, 
+        name: 'Saco', 
+        price: 860, 
+        description: 'Saco con diseño exclusivo para mujeres valientes', 
+        image: require('../../assets/images/ropa2.jpg') 
+    },
+    {
+      id: 3, 
+        name: 'Playera FUN Tenis', 
+        price: 640, 
+        description: 'Playera roja con diseño cosido para hombres', 
+        image: require('../../assets/images/fun_tenis.jpg') 
+    },
+    {
+      id: 4, 
+        name: 'Vestido Floreado', 
+        price: 300, 
+        description: 'Vestido con diseño de flores', 
+        image: require('../../assets/images/flower_dress.jpg') 
+
+    },
     // Agrega más productos aquí
 ];
 
+
+
+
 export default function Index() {
+
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     useEffect(() => {
@@ -30,6 +61,8 @@ export default function Index() {
 
         return () => clearInterval(interval); // Limpia el intervalo al desmontar el componente
     }, []);
+
+    const isLoggedIn = false; // Variable para simular si el usuario está logueado o no
 
     return (
         <ScrollView style={styles.container}>
@@ -46,14 +79,25 @@ export default function Index() {
             />
 
             {/* Aquí inserta el texto descriptivo */}
-            <Text style={styles.description}>¡Bienvenido a nuestra aplicación!</Text>
+            <Text style={styles.description}>Nuestros Productos</Text>
 
             {/* Aquí se agregan las tarjetas de presentación */}
             <View style={styles.cardsContainer}>
                 {products.map(product => (
                     <View key={product.id} style={styles.card}>
                         <Image source={product.image} style={styles.cardImage} />
-                        <Text style={styles.cardText}>{product.name}</Text>
+                        <Text style={styles.cardTitle}>{product.name}</Text>
+                        <Text style={styles.cardDescription}>{product.description}</Text>
+                        <Text style={styles.cardPrice}>${product.price}</Text>
+
+                        {/* Mostrar un botón si el usuario no ha iniciado sesión */}
+                        {!isLoggedIn ? (
+                            <TouchableOpacity style={styles.loginButton}>
+                                <Text style={styles.loginButtonText}>Debes iniciar sesión para poder comprar</Text>
+                            </TouchableOpacity>
+                        ) : (
+                            <Button title="Comprar" onPress={() => { /* acción de compra */ }} />
+                        )}
                     </View>
                 ))}
             </View>
@@ -81,39 +125,63 @@ const styles = StyleSheet.create({
         height: 200,          // Alto de la imagen
     },
     description: {
-        fontSize: 18,         // Tamaño de la fuente
+        fontSize: 20,         // Tamaño de la fuente
         fontWeight: 'bold',   // Peso de la fuente
         color: '#333',        // Color del texto
-        marginTop: 400,       // Espacio desde la imagen hasta el texto
+        marginTop: 385,       // Espacio desde la imagen hasta el texto
         textAlign: 'center',   // Centra el texto
     },
     cardsContainer: {
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        justifyContent: 'space-around',
-        marginTop: 20, // Espacio entre el texto y las tarjetas
-    },
+      flexDirection: 'row',       
+      flexWrap: 'wrap',          
+      justifyContent: 'space-around', // Espacia las tarjetas de manera más equilibrada
+      marginTop: 20,             
+      paddingHorizontal: 5,     
+  },
+  
     card: {
-        width: '45%',      // Ancho de cada tarjeta (ajusta según necesites)
-        borderRadius: 10,  // Bordes redondeados
-        marginBottom: 20,  // Espacio inferior entre las tarjetas
+        width: '48%',          // Ajusta el ancho de cada tarjeta (48% para que quepan dos con margen)
+        borderRadius: 10,      // Bordes redondeados
+        marginBottom: 20,      // Espacio inferior entre las tarjetas
         backgroundColor: '#fff', // Fondo blanco para las tarjetas
-        shadowColor: '#000', // Sombra para dar profundidad
+        shadowColor: '#000',   // Sombra para dar profundidad
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.3,
         shadowRadius: 4,
-        elevation: 3, // Efecto de elevación para Android
-        alignItems: 'center', // Centra el contenido de la tarjeta
+        elevation: 3,          // Efecto de elevación para Android
+        alignItems: 'center',  // Centra el contenido de la tarjeta
+        padding: 10,           // Espaciado interno
     },
     cardImage: {
-        width: '100%', // Ajusta el ancho de la imagen de la tarjeta
-        height: 150,   // Altura de la imagen de la tarjeta
+        width: '100%',         // Ajusta el ancho de la imagen de la tarjeta
+        height: 150,           // Altura de la imagen de la tarjeta
         borderTopLeftRadius: 10,
         borderTopRightRadius: 10,
     },
-    cardText: {
-        fontSize: 16,   // Tamaño de la fuente en las tarjetas
-        fontWeight: 'bold', // Peso de la fuente
-        marginVertical: 10, // Espacio vertical
+    cardTitle: {
+        fontSize: 16,          // Tamaño de la fuente en las tarjetas
+        fontWeight: 'bold',    // Peso de la fuente
+        marginVertical: 5,     // Espacio vertical
+    },
+    cardDescription: {
+        fontSize: 14,
+        color: '#666',
+    },
+    cardPrice: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: '#000',
+        marginTop: 5,
+    },
+    loginButton: {
+        backgroundColor: '#888',
+        padding: 10,
+        borderRadius: 5,
+        marginTop: 10,
+    },
+    loginButtonText: {
+        color: '#fff',
+        textAlign: 'center',
+        fontSize: 10,
     },
 });
