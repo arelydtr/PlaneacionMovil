@@ -7,7 +7,7 @@ const logo = require('../../assets/images/logo.png'); // Cambia la ruta si es ne
 const icon = require('../../assets/images/icon.png'); // Asegúrate de que la ruta a icon.png sea correcta
 
 const images = [
-    require('../../assets/images/main4.jpg'), // Cambia esto por las imágenes correctas
+    require('../../assets/images/main4.jpg'), 
     require('../../assets/images/main2.jpg'),
     require('../../assets/images/main3.jpg'),
     require('../../assets/images/main5.jpg'),
@@ -44,7 +44,7 @@ const products = [
         image: require('../../assets/images/flower_dress.jpg') 
 
     },
-    // Agrega más productos aquí
+    
 ];
 
 
@@ -57,7 +57,7 @@ export default function Index() {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-        }, 5000); // Cambia la imagen cada 5 segundos
+        }, 4000); // Cambia la imagen cada 5 segundos
 
         return () => clearInterval(interval); // Limpia el intervalo al desmontar el componente
     }, []);

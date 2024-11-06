@@ -9,7 +9,12 @@ export default function PoliticaPrivacidad() {
         <View style={styles.container}>
             <Text style={styles.title}>Política de Privacidad</Text>
             <Text style={styles.text}>
-                Aquí puedes detallar la política de privacidad de Alevosía Boutique.
+            Alevosía, con domicilio en Calle Zacatecas 1, Colonia Centro, Ciudad Huejutla de Reyes, Municipio o Delegación Huejutla, C.P. 43000, en la entidad de Hidalgo, país México, es el responsable del uso y protección de sus datos personales, y al respecto le informamos lo siguiente: 
+            </Text>
+
+            <Text style={styles.title}>1. Almacenamiento y Compartición de Datos Personales:</Text>
+            <Text style={styles.text}>
+            Los datos personales se almacenan de manera segura y solo se comparten con terceros necesarios para completar los pedidos (por ejemplo, empresas de envío). Mantenemos medidas de seguridad para proteger los datos contra acceso no autorizado. Los datos personales que se emplean son: 
             </Text>
             <TouchableOpacity onPress={() => navigation.goBack()}>
                 <Text style={styles.backText}>Volver</Text>
